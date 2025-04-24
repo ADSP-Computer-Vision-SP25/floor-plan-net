@@ -1,0 +1,14 @@
+# Data Files
+*.png
+*.svg
+*.csv
+
+# Environments
+.idea/
+.vscode/
+.history/
+
+**/__pycache__/
+**/venv/
+**/logs/
+**/ipynb_checkpoints/
