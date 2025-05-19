@@ -1,0 +1,36 @@
+# CAD Floor Plan Segmentation Dataset
+path: data/cad                   # root directory
+train: images/train-01           # train images
+val: images/train-00             # val images
+test: images/test-00             # test images (optional)
+
+# Classes
+nc: 31                           # number of classes
+names: [
+   "wall",      "curtain wall",  "single door",
+   "double door",  "sliding door",  "unknown_1",  "unknown_2",  "unknown_3",  "window",  "unknown_3",
+   "sliding window/blind window",  "opening symbol",
+   "sofa",     "bed",     "chair",
+   "table",    "tv cabinet",  "wardrobe",
+   "cabinet",  "refrigerator",  "airconditioner",
+   "gas stove",  "sink",  "bath",
+   "bath tub",  "washing machine",  "squat toilet",
+   "urinal",  "toilet",  "stair",  "elevator"]
+
+# Segmentation masks
+task: segment                    # detection or segment
+mask_path: masks                 # path to segmentation masks relative to dataset path
+
+# Dataset format
+format: yolo                     # dataset format (yolo, coco, etc.)
+use_segments: True               # use segments for training
+use_masks: True                  # use masks for training instead of polygons
+
+# Segmentation masks
+task: segment                    # detection or segment
+mask_path: masks                 # path to segmentation masks relative to dataset path
+
+# Dataset format
+format: yolo                     # dataset format (yolo, coco, etc.)
+use_segments: True               # use segments for training
+use_masks: True                  # use masks for training instead of polygons
