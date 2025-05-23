@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
 
-def visualize_coco_annotations(annotation_file, image_file, image_dir, output_file=None):
+def visualize_coco_annotations(annotation_file, image_file, image_dir, ax=None, show=True):
     """
     Visualize COCO annotations for a specific image
     
@@ -34,19 +34,24 @@ def visualize_coco_annotations(annotation_file, image_file, image_dir, output_fi
     # Filter annotations for this image
     anns = [ann for ann in coco['annotations'] 
             if ann['image_id'] == image_id]
-    
-    # Load the image
-    img = Image.open(os.path.join(image_dir, image_file))
-    
-    # Plot
-    fig, ax = plt.subplots(figsize=(10, 10))
+
+    # load image
+    img = Image.open(os.path.join(image_dir, image_file)).convert("RGBA")
+
+    # prepare figure/axes
+    created_fig = False
+    if ax is None:
+        fig, ax = plt.subplots(figsize=(10, 10))
+        created_fig = True
+    else:
+        fig = ax.figure
+
+    # draw image and boxes
     ax.imshow(img)
-    
     for ann in anns:
         x, y, w_box, h_box = ann['bbox']
         label = cat_map[ann['category_id']]
 
-        # draw a bright, thick rectangle
         rect = patches.Rectangle(
             (x, y),
             w_box, h_box,
@@ -55,8 +60,6 @@ def visualize_coco_annotations(annotation_file, image_file, image_dir, output_fi
             facecolor='none'
         )
         ax.add_patch(rect)
-
-        # label just above the box, white text on magenta bg
         ax.text(
             x, y - 5, label,
             fontsize=8,
@@ -67,10 +70,11 @@ def visualize_coco_annotations(annotation_file, image_file, image_dir, output_fi
         )
     
     ax.axis('off')
-    plt.tight_layout()
-    
-    # Save or show
-    if output_file:
-        plt.savefig(output_file)
-    else:
+    if created_fig:
+        plt.tight_layout()
+
+    # show or return
+    if show:
         plt.show()
+    else:
+        return fig, ax
