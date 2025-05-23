@@ -7,10 +7,10 @@ import os
 import json
 
 # ——— USER CONFIG ———
-SEGMENTS_JSON = os.path.join(os.path.dirname(__file__), "segments.json")
+SEGMENTS_JSON = os.path.join(os.path.dirname(__file__), "segments-0126-0009.json")
 WALL_HEIGHT   = 2.0
 SCALE_FACTOR  = 0.15
-BLEND_OUT     = os.path.join(os.path.dirname(__file__), "walls.blend")
+BLEND_OUT     = os.path.join(os.path.dirname(__file__), "walls-0126-0009.blend")
 
 # ——— CLEAR SCENE ———
 bpy.ops.object.select_all(action='SELECT')

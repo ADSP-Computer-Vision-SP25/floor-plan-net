@@ -1,3 +1,0 @@
-# FloorPlanCAD
-
-30K sample PNG images and with labels in SVG...

@@ -2,6 +2,8 @@
 *.png
 *.svg
 *.csv
+*.pt
+*.blend*
 data/
 
 # Environments
