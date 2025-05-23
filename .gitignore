@@ -5,6 +5,7 @@
 *.pt
 *.blend*
 data/
+runs/
 
 # Environments
 .idea/
