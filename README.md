@@ -15,12 +15,9 @@ People often struggle to interpret 2D floor plans and visualize real-world space
 
 ## 📂 Project Structure
 
-- `data/`: Raw floor plan images (`.png`), SVG annotations, and processed COCO/YOLO files.
-- `models/`: Object detection (YOLO) and inpainting (Stable Diffusion) pipelines.
-- `api/`: FastAPI backend for orchestrating preprocessing, model inference, and 3D rendering.
-- `streamlit_app/`: User-facing web interface.
-- `docker/`: Deployment files for containerization.
-- `notebooks/`: EDA and model experimentation.
+- `in_painting/`: Stable Diffusion inpainting pipelines for text-guided floor plan customization.
+- `object_detection/`: YOLO-based object detection models for identifying floor plan elements.
+- `segmentation/`: Preprocessing and floor plan segmentation scripts, including FastAPI orchestration.
 
 ---
 
